@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-06T14:06:33.277Z\n"
-"PO-Revision-Date: 2025-02-06T14:06:33.277Z\n"
+"POT-Creation-Date: 2025-02-10T14:57:44.655Z\n"
+"PO-Revision-Date: 2025-02-10T14:57:44.655Z\n"
 
 msgid "About this app"
 msgstr "About this app"
@@ -227,6 +227,9 @@ msgstr "Heat"
 
 msgid "Climate change"
 msgstr "Climate change"
+
+msgid "Vegetation"
+msgstr "Vegetation"
 
 msgid ""
 "Temperature anomaly is the difference of a temperature from a reference "
@@ -471,6 +474,9 @@ msgstr "Dewpoint temperature"
 
 msgid "Air temperature"
 msgstr "Air temperature"
+
+msgid "{{name}}: {{index}} vegetation index {{period}}"
+msgstr "{{name}}: {{index}} vegetation index {{period}}"
 
 msgid "{{name}}: Daily precipitation {{period}}"
 msgstr "{{name}}: Daily precipitation {{period}}"
@@ -1042,6 +1048,9 @@ msgstr "ERA5-Land / Copernicus Climate Change Service / Google Earth Engine"
 
 msgid "ERA5-HEAT / Copernicus Climate Change Service / Google Earth Engine"
 msgstr "ERA5-HEAT / Copernicus Climate Change Service / Google Earth Engine"
+
+msgid "NASA LP DAAC at the USGS EROS Center / Google Earth Engine"
+msgstr "NASA LP DAAC at the USGS EROS Center / Google Earth Engine"
 
 msgid "No data found for the selected period"
 msgstr "No data found for the selected period"

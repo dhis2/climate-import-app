@@ -1,0 +1,10 @@
+.vegetationIndexButtons {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.vegetationIndexButtons button {
+  margin-right: 5px;
+}

@@ -22,6 +22,7 @@ import ImportPage from './import/ImportPage.jsx'
 import Root from './Root.jsx'
 import SettingsPage from './settings/SettingsPage.jsx'
 import SetupPage from './setup/SetupPage.jsx'
+import Vegetation from './explore/land/Vegetation.jsx'
 
 const monthlyPath = 'monthly/:startTime/:endTime/:referencePeriodId'
 const dailyPath = 'daily/:startTime/:endTime'
@@ -101,6 +102,16 @@ const tabRoutes = [
             {
                 path: ':month/:referencePeriodId',
                 element: <ClimateChange />,
+            },
+        ],
+    },
+    {
+        path: 'vegetation',
+        element: <Tabs />,
+        children: [
+            {
+                path: ':vegetationIndex',
+                element: <Vegetation />,
             },
         ],
     },

@@ -50,3 +50,8 @@ export const heatCredits = {
         'ERA5-HEAT / Copernicus Climate Change Service / Google Earth Engine'
     ),
 }
+
+export const vegetationCredits = {
+    href: 'https://lpdaac.usgs.gov/products/mod13q1v061/',
+    text: i18n.t('NASA LP DAAC at the USGS EROS Center / Google Earth Engine'),
+}
