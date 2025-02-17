@@ -10,6 +10,7 @@ import styles from './styles/Root.module.css'
 export const appPages = [
     { path: '/', name: i18n.t('Home') },
     { path: '/explore', name: i18n.t('Explore data') },
+    { path: '/station', name: i18n.t('Station data') },
     { path: '/import', name: i18n.t('Import data') },
     { path: '/setup', name: i18n.t('Setup guide') },
     { path: '/settings', name: i18n.t('Settings') },

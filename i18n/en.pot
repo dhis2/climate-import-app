@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-06T14:06:33.277Z\n"
-"PO-Revision-Date: 2025-02-06T14:06:33.277Z\n"
+"POT-Creation-Date: 2025-02-11T11:10:48.583Z\n"
+"PO-Revision-Date: 2025-02-11T11:10:48.583Z\n"
 
 msgid "About this app"
 msgstr "About this app"
@@ -110,6 +110,9 @@ msgstr "Home"
 
 msgid "Explore data"
 msgstr "Explore data"
+
+msgid "Station data"
+msgstr "Station data"
 
 msgid "Import data"
 msgstr "Import data"
@@ -701,6 +704,9 @@ msgstr "Heat stress upper category"
 msgid "Heat stress lower category"
 msgstr "Heat stress lower category"
 
+msgid "AirQo token"
+msgstr "AirQo token"
+
 msgid "Calculate from data"
 msgstr "Calculate from data"
 
@@ -861,6 +867,18 @@ msgstr ""
 
 msgid "Time zone"
 msgstr "Time zone"
+
+msgid "AirQo token not set"
+msgstr "AirQo token not set"
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "Air Quality PM<sub>2.5</sub>"
+msgstr "Air Quality PM<sub>2.5</sub>"
+
+msgid "AirQo"
+msgstr "AirQo"
 
 msgid "Approximately 31 km (0.25°)"
 msgstr "Approximately 31 km (0.25°)"
@@ -1036,6 +1054,64 @@ msgstr "Extreme heat stress"
 
 msgid "Extreme<br>heat stress"
 msgstr "Extreme<br>heat stress"
+
+msgid "Air Quality Index (AQI"
+msgstr "Air Quality Index (AQI"
+
+msgid "Good"
+msgstr "Good"
+
+msgid ""
+"Air quality is considered satisfactory, and air pollution poses little or "
+"no risk"
+msgstr ""
+"Air quality is considered satisfactory, and air pollution poses little or "
+"no risk"
+
+msgid "Moderate"
+msgstr "Moderate"
+
+msgid ""
+"Active children and adults, and people with respiratory disease, such as "
+"asthma, should limit prolonged outdoor exertion."
+msgstr ""
+"Active children and adults, and people with respiratory disease, such as "
+"asthma, should limit prolonged outdoor exertion."
+
+msgid "Unhealthy for Sensitive Groups"
+msgstr "Unhealthy for Sensitive Groups"
+
+msgid ""
+"Members of sensitive groups may experience health effects. Active children "
+"and adults, and people with respiratory disease, such as asthma, should "
+"limit prolonged outdoor exertion."
+msgstr ""
+"Members of sensitive groups may experience health effects. Active children "
+"and adults, and people with respiratory disease, such as asthma, should "
+"limit prolonged outdoor exertion."
+
+msgid "Unhealthy"
+msgstr "Unhealthy"
+
+msgid ""
+"Everyone may begin to experience health effects; members of sensitive "
+"groups may experience more serious health effects."
+msgstr ""
+"Everyone may begin to experience health effects; members of sensitive "
+"groups may experience more serious health effects."
+
+msgid "Very unhealthy"
+msgstr "Very unhealthy"
+
+msgid ""
+"Health warnings of emergency conditions. The entire population is more "
+"likely to be affected."
+msgstr ""
+"Health warnings of emergency conditions. The entire population is more "
+"likely to be affected."
+
+msgid "Hazardous"
+msgstr "Hazardous"
 
 msgid "ERA5-Land / Copernicus Climate Change Service / Google Earth Engine"
 msgstr "ERA5-Land / Copernicus Climate Change Service / Google Earth Engine"

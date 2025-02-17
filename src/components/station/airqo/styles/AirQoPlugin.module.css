@@ -1,0 +1,21 @@
+.container {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  width: 400px;
+  height: 400px;
+}
+
+.container :global(.airquality-label) span span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.description {
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+}

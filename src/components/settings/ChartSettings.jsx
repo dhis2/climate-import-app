@@ -33,7 +33,6 @@ const ChartSettings = () => {
                 label={i18n.t('Max temperature in °C')}
                 value={tempMax}
                 onChange={changeSetting}
-                inputWidth="100px"
             />
             <NumberInput
                 id="tempMin"
