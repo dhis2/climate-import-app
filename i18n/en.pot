@@ -228,6 +228,15 @@ msgstr "Heat"
 msgid "Climate change"
 msgstr "Climate change"
 
+msgid "Land"
+msgstr "Land"
+
+msgid "Vegetation"
+msgstr "Vegetation"
+
+msgid "Land cover"
+msgstr "Land cover"
+
 msgid ""
 "Temperature anomaly is the difference of a temperature from a reference "
 "value, calculated as the average temperature over a period of 30 years. "
@@ -471,6 +480,66 @@ msgstr "Dewpoint temperature"
 
 msgid "Air temperature"
 msgstr "Air temperature"
+
+msgid "Evergreen Needleleaf forest"
+msgstr "Evergreen Needleleaf forest"
+
+msgid "Evergreen Broadleaf forest"
+msgstr "Evergreen Broadleaf forest"
+
+msgid "Deciduous Needleleaf forest"
+msgstr "Deciduous Needleleaf forest"
+
+msgid "Deciduous Broadleaf forest"
+msgstr "Deciduous Broadleaf forest"
+
+msgid "Mixed forest"
+msgstr "Mixed forest"
+
+msgid "Closed shrublands"
+msgstr "Closed shrublands"
+
+msgid "Open shrublands"
+msgstr "Open shrublands"
+
+msgid "Woody savannas"
+msgstr "Woody savannas"
+
+msgid "Savannas"
+msgstr "Savannas"
+
+msgid "Grasslands"
+msgstr "Grasslands"
+
+msgid "Permanent wetlands"
+msgstr "Permanent wetlands"
+
+msgid "Croplands"
+msgstr "Croplands"
+
+msgid "Urban and built-up"
+msgstr "Urban and built-up"
+
+msgid "Cropland/Natural vegetation mosaic"
+msgstr "Cropland/Natural vegetation mosaic"
+
+msgid "Snow and ice"
+msgstr "Snow and ice"
+
+msgid "Barren or sparsely vegetated"
+msgstr "Barren or sparsely vegetated"
+
+msgid "Water"
+msgstr "Water"
+
+msgid "Land cover type"
+msgstr "Land cover type"
+
+msgid "{{name}}: Land cover changes {{years}}"
+msgstr "{{name}}: Land cover changes {{years}}"
+
+msgid "{{name}}: {{index}} vegetation index {{period}}"
+msgstr "{{name}}: {{index}} vegetation index {{period}}"
 
 msgid "{{name}}: Daily precipitation {{period}}"
 msgstr "{{name}}: Daily precipitation {{period}}"
@@ -1048,6 +1117,9 @@ msgstr "ERA5-Land / Copernicus Climate Change Service / Google Earth Engine"
 
 msgid "ERA5-HEAT / Copernicus Climate Change Service / Google Earth Engine"
 msgstr "ERA5-HEAT / Copernicus Climate Change Service / Google Earth Engine"
+
+msgid "NASA LP DAAC at the USGS EROS Center / Google Earth Engine"
+msgstr "NASA LP DAAC at the USGS EROS Center / Google Earth Engine"
 
 msgid "No data found for the selected period"
 msgstr "No data found for the selected period"
