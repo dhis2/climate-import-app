@@ -18,15 +18,11 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^3.12.1",
-        "@dhis2/multi-calendar-dates": "1.0.0-alpha.27",
+        "@dhis2/multi-calendar-dates": "^2.0.0",
         "@dhis2/ui": "^10.1.10",
         "@turf/area": "^6.5.0",
         "highcharts": "^10.3.3",
         "react-router-dom": "^6.26.1",
         "zustand": "^4.5.5"
-    },
-    "resolutions": {
-        "@dhis2/cli-app-scripts/**/@dhis2/multi-calendar-dates": "1.2.3",
-        "@dhis2/multi-calendar-dates": "1.0.0-alpha.27"
     }
 }

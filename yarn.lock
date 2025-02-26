@@ -2017,18 +2017,10 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/multi-calendar-dates@1.0.0-alpha.27", "@dhis2/multi-calendar-dates@2.0.0":
-  version "1.0.0-alpha.27"
-  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-1.0.0-alpha.27.tgz#01bacfba4fdcfd8125fc3493041352ec136f6233"
-  integrity sha512-gaWQ2BclRL6U36FcmGKfl26qS7B2Q+4EGuz5ckYOHblgbkiyh5rZ3JQ5uOvdKIWoPcsOhBri+ZuGc8T9/MTNeQ==
-  dependencies:
-    "@js-temporal/polyfill" "0.4.3"
-    classnames "^2.3.2"
-
-"@dhis2/multi-calendar-dates@1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-1.2.3.tgz#ef36bc80b34eaaa7f7cefa51b443528c019ff2d2"
-  integrity sha512-K3E9yAH/SPXi1O7RWuK7bznYTa1v3x4Ys0ihpMWnKH++OLMx76yK/1H1m9v7NgQvMry29ATQMJh0n/vJSg+EpA==
+"@dhis2/multi-calendar-dates@2.0.0", "@dhis2/multi-calendar-dates@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-2.0.0.tgz#febf04f873670960804d38c9ebaa1cadf8050db3"
+  integrity sha512-pxu81kkkh70tB+CyAub41ulpNJPHyxDGwH2pdcc+NUqrKu4OTQr5ScdCBL2MndShrEKj9J6qj9zKVagvvymH5w==
   dependencies:
     "@dhis2/d2-i18n" "^1.1.3"
     "@js-temporal/polyfill" "0.4.3"
