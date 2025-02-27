@@ -3,6 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import { CalendarInput } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
+import { DAILY, SIXTEEN_DAYS, WEEKLY } from '../../utils/time.js'
 import TimeZone from '../shared/TimeZone.jsx'
 import PeriodType from './PeriodType.jsx'
 import styles from './styles/Period.module.css'
@@ -16,7 +17,7 @@ const userSettingsQuery = {
     },
 }
 
-const Period = ({ calendar, period, onChange }) => {
+const Period = ({ calendar, period, datasetPeriodType, onChange }) => {
     const result = useDataQuery(userSettingsQuery)
     const { data: { userSettings: { keyUiLocale: locale } = {} } = {} } = result
     const { periodType, startTime, endTime } = period
@@ -27,6 +28,12 @@ const Period = ({ calendar, period, onChange }) => {
             onChange({ ...period, locale })
         }
     }, [locale, onChange, period])
+
+    useEffect(() => {
+        if (datasetPeriodType === SIXTEEN_DAYS && period.periodType === DAILY) {
+            onChange({ ...period, periodType: WEEKLY })
+        }
+    }, [period, datasetPeriodType, onChange])
 
     return (
         <div className={styles.container}>
@@ -39,6 +46,7 @@ const Period = ({ calendar, period, onChange }) => {
             <div className={styles.pickers}>
                 <PeriodType
                     periodType={periodType}
+                    datasetPeriodType={datasetPeriodType}
                     onChange={(periodType) =>
                         onChange({ ...period, periodType })
                     }
@@ -72,6 +80,7 @@ const Period = ({ calendar, period, onChange }) => {
 Period.propTypes = {
     onChange: PropTypes.func.isRequired,
     calendar: PropTypes.string,
+    datasetPeriodType: PropTypes.string,
     period: PropTypes.object,
 }
 

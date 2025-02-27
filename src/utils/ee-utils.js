@@ -1,6 +1,16 @@
 import i18n from '@dhis2/d2-i18n'
 import area from '@turf/area'
-import { HOURLY, DAILY, MONTHLY, getMappedPeriods, getPeriods } from './time.js'
+import { interpolate } from './calc.js'
+import {
+    HOURLY,
+    DAILY,
+    MONTHLY,
+    getMappedPeriods,
+    getPeriods,
+    getMiddleTime,
+    addPeriodTimestamp,
+    SIXTEEN_DAYS,
+} from './time.js'
 
 const VALUE_LIMIT = 5000
 
@@ -19,12 +29,14 @@ export const getInfo = (instance) =>
         })
     )
 
+const getFeatureProperties = (feature) => ({
+    id: feature.id,
+    ...feature.properties,
+})
+
 // Reduce a feature collection to array of objects with id and properties
 export const getFeatureCollectionPropertiesArray = (data) =>
-    data.features.map((f) => ({
-        id: f.id,
-        ...f.properties,
-    }))
+    data.features.map(getFeatureProperties)
 
 export const cleanData = (data) =>
     data.map((f) => ({
@@ -96,20 +108,43 @@ export const getEarthEngineValues = ({
 
         const { startTime, endTime, timeZone = 'UTC', periodType } = period
 
-        const periods = getPeriods(period)
+        const periods = getPeriods(period).map(addPeriodTimestamp)
         const endTimePlusOne = ee.Date(endTime).advance(1, 'day')
-        const timeZoneStart = ee.Date(startTime).format(null, timeZone)
+        const timeZoneStart = ee
+            .Date(startTime)
+            .advance(datasetPeriodType === SIXTEEN_DAYS ? -32 : 0, 'day')
+            .format(null, timeZone)
         const timeZoneEnd = endTimePlusOne.format(null, timeZone)
         const mappedPeriods = getMappedPeriods(periods)
 
-        const dataParser = (data) =>
-            data.map((f) => ({
-                ...f.properties,
-                period: mappedPeriods.get(f.properties.period),
-                value: valueParser
-                    ? valueParser(f.properties.value)
-                    : f.properties.value,
+        const dataParser = (features) => {
+            let data = features.map(getFeatureProperties)
+
+            if (datasetPeriodType === SIXTEEN_DAYS) {
+                const orgUnits = [...new Set(data.map((d) => d.ou))]
+
+                data = orgUnits
+                    .map((ou) => {
+                        const ouData = data.filter((d) => d.ou === ou)
+                        return periods.map((p) => {
+                            const value = interpolate(ouData, getMiddleTime(p))
+                            const period = p.startDate
+                            return {
+                                ou,
+                                period,
+                                value,
+                            }
+                        })
+                    })
+                    .flat()
+            }
+
+            return data.map((d) => ({
+                ...d,
+                period: mappedPeriods.get(d.period),
+                value: valueParser ? valueParser(d.value) : d.value,
             }))
+        }
 
         let collection = ee
             .ImageCollection(datasetId)
@@ -180,7 +215,7 @@ export const getEarthEngineValues = ({
             }
 
             // Go from daily to period type (weekly or monthly)
-            if (periodType !== DAILY) {
+            if (datasetPeriodType === DAILY && periodType !== DAILY) {
                 const periodList = ee.List(periods)
 
                 collection = ee.ImageCollection.fromImages(
@@ -215,7 +250,9 @@ export const getEarthEngineValues = ({
                     .map((feature) =>
                         ee.Feature(null, {
                             ou: feature.get('id'),
-                            period: image.date().format('YYYY-MM-dd'),
+                            period: image.date().format('YYYY-MM-dd'), // TODO: Change?
+                            startTime: image.get('system:time_start'),
+                            endTime: image.get('system:time_end'),
                             value: feature.get(reducer),
                         })
                     )
@@ -383,6 +420,8 @@ export const getTimeSeriesData = async ({
                         image.reduceRegion(eeReducer, eeGeometry, eeScale)
                     )
                     .set('system:index', image.get('system:index'))
+                    .set('startTime', image.get('system:time_start'))
+                    .set('endTime', image.get('system:time_end'))
             )
         )
     ).then(getFeatureCollectionPropertiesArray)

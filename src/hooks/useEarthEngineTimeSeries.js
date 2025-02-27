@@ -4,8 +4,9 @@ import useEarthEngine from './useEarthEngine.js'
 
 const getPeriodFromId = (id) => {
     const year = id.slice(0, 4)
-    const month = id.slice(4, 6)
-    const day = id.slice(6, 8)
+    const month = id.includes('_') ? id.slice(5, 7) : id.slice(4, 6)
+    const day = id.includes('_') ? id.slice(8, 10) : id.slice(6, 8)
+
     return `${year}-${month}${day ? `-${day}` : ''}`
 }
 

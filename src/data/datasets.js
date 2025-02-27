@@ -5,7 +5,7 @@ import {
     roundOneDecimal,
     roundTwoDecimals,
 } from '../utils/calc.js'
-import { HOURLY, DAILY, MONTHLY } from '../utils/time.js'
+import { HOURLY, DAILY, MONTHLY, SIXTEEN_DAYS } from '../utils/time.js'
 
 // kelvin to celsius with one decimal
 const temperatureParser = (v) => roundOneDecimal(kelvinToCelsius(v)).toString()
@@ -28,11 +28,14 @@ const precipitationParser = (v) =>
         useGrouping: false,
     })
 
+const vegetationIndexParser = (v) => roundTwoDecimals(v * 0.0001).toString()
+
 const twoDecimals = (v) => roundTwoDecimals(v).toString()
 
 export const era5Resolution = i18n.t('Approximately 31 km (0.25°)')
 export const era5LandResolution = i18n.t('Approximately 9 km (0.1°)')
 export const chirpsResolution = i18n.t('Approximately 5 km (0.05°)')
+export const modisResolution = i18n.t('Approximately 250 m')
 
 export default [
     {
@@ -237,6 +240,34 @@ export default [
         aggregationType: i18n.t('Min'),
         dataElementCode: 'ERA5_HEAT_UTCI_MIN',
     },
+    {
+        id: 'MODIS/061/MOD13Q1/NDVI',
+        datasetId: 'MODIS/061/MOD13Q1',
+        name: i18n.t('NDVI - Normalized difference vegetation index (MODIS)'),
+        shortName: i18n.t('NDVI'),
+        description: i18n.t('NDVI is a measure of vegetation greenness'),
+        resolution: modisResolution,
+        periodType: SIXTEEN_DAYS,
+        band: 'NDVI',
+        reducer: 'mean',
+        valueParser: vegetationIndexParser,
+        aggregationType: i18n.t('Average'),
+        dataElementCode: 'MODIS_NDVI',
+    },
+    {
+        id: 'MODIS/061/MOD13Q1/EVI',
+        datasetId: 'MODIS/061/MOD13Q1',
+        name: i18n.t('EVI - Enhanced vegetation index (MODIS)'),
+        shortName: i18n.t('EVI'),
+        description: i18n.t('EVI is a measure of vegetation greenness'),
+        resolution: modisResolution,
+        periodType: SIXTEEN_DAYS,
+        band: 'EVI',
+        reducer: 'mean',
+        valueParser: vegetationIndexParser,
+        aggregationType: i18n.t('Average'),
+        dataElementCode: 'MODIS_EVI',
+    },
 ]
 
 const era5band = [
@@ -289,3 +320,29 @@ export const era5HeatMonthly = {
     ...era5HeatDaily,
     aggregationPeriod: MONTHLY,
 }
+
+export const dhisDataSets = [
+    {
+        name: i18n.t('Climate/Weather'),
+        shortName: i18n.t('Climate/Weather'),
+        periodType: i18n.t('Daily'),
+    },
+    {
+        name: i18n.t('Environment'),
+        shortName: i18n.t('Environment'),
+        periodType: i18n.t('Weekly or Monthly'),
+    },
+]
+
+export const dhisDataElementGroups = [
+    {
+        name: i18n.t('Climate/Weather'),
+        shortName: i18n.t('Climate/Weather'),
+        dataElements: i18n.t('Assign above data elements (weather & climate)'),
+    },
+    {
+        name: i18n.t('Environment'),
+        shortName: i18n.t('Environment'),
+        dataElements: i18n.t('Assign above data elements (vegetation)'),
+    },
+]

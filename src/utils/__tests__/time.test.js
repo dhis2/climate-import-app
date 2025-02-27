@@ -14,6 +14,7 @@ import {
     toDateObject,
     toStandardDate,
     getPeriods,
+    oneDayInMs,
     DAILY,
     WEEKLY,
     MONTHLY,
@@ -76,7 +77,6 @@ const ethiopicPeriod = {
     periodType: DAILY,
 }
 
-const oneDayInMs = 1000 * 60 * 60 * 24
 const now = new Date()
 const today = formatStandardDate(now)
 const tomorrow = formatStandardDate(new Date(now.getTime() + oneDayInMs))

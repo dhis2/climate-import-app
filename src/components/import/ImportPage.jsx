@@ -72,6 +72,7 @@ const ImportPage = () => {
                         <Period
                             calendar={calendar}
                             period={period}
+                            datasetPeriodType={dataset?.periodType}
                             onChange={setPeriod}
                         />
                         <OrgUnits selected={orgUnits} onChange={setOrgUnits} />
@@ -123,7 +124,7 @@ const ImportPage = () => {
                     <h2>{i18n.t('Instructions')}</h2>
                     <p>
                         {i18n.t(
-                            'Before you can import weather and climate data, you need to create the associated data elements in DHIS2. See our setup guide in the left menu.'
+                            'Before you can import data, you need to create the associated data elements in DHIS2. See our setup guide in the left menu.'
                         )}
                     </p>
                     <p>

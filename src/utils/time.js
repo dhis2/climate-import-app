@@ -10,8 +10,9 @@ export const HOURLY = 'HOURLY'
 export const DAILY = 'DAILY'
 export const WEEKLY = 'WEEKLY'
 export const MONTHLY = 'MONTHLY'
+export const SIXTEEN_DAYS = 'SIXTEEN_DAYS'
 
-const oneDayInMs = 1000 * 60 * 60 * 24
+export const oneDayInMs = 1000 * 60 * 60 * 24
 
 export const periodTypes = [
     {
@@ -27,6 +28,23 @@ export const periodTypes = [
         name: i18n.t('Monthly'),
     },
 ]
+
+// TODO: In UTC?
+export const addPeriodTimestamp = (period) => {
+    const startTime = new Date(period.startDate).getTime()
+    const endTime = new Date(period.endDate).getTime() + oneDayInMs
+    const middleTime = startTime + (endTime - startTime) / 2
+
+    return {
+        ...period,
+        startTime,
+        endTime,
+        middleTime,
+    }
+}
+
+export const getMiddleTime = (period) =>
+    period.startTime + (period.endTime - period.startTime) / 2
 
 /**
  * Pads a number with zeroes to the left
@@ -198,12 +216,16 @@ export const formatDate = (date) => {
 
 /**
  * Translates a date string to a date object
- * @param {String} dateString Date string in the format YYYY-MM-DD
+ * @param {String} dateString Date string in the format YYYY-MM-DD or YYYY-MM
  * @returns {Object} Date object with year, month and day
  */
 export const toDateObject = (dateString) => {
     const [year, month, day] = dateString.split('-')
-    return { year: parseInt(year), month: parseInt(month), day: parseInt(day) }
+    return {
+        year: parseInt(year),
+        month: parseInt(month),
+        day: day ? parseInt(day) : 1,
+    }
 }
 
 /**
@@ -267,7 +289,13 @@ export const getStandardPeriod = ({
  * @returns {Array} Period items
  */
 export const getPeriods = (period) => {
-    const { periodType, startTime, endTime, calendar, locale = 'en' } = period
+    const {
+        periodType,
+        startTime,
+        endTime,
+        calendar = 'gregory',
+        locale = 'en',
+    } = period
 
     const startYear = extractYear(fromStandardDate(startTime, calendar))
     const endYear = extractYear(fromStandardDate(endTime, calendar))

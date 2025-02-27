@@ -12,6 +12,7 @@ import HeatDaily from './explore/heat/HeatDaily.jsx'
 import HeatMonthly from './explore/heat/HeatMonthly.jsx'
 import HumidityDaily from './explore/humidity/HumidityDaily.jsx'
 import HumidityMonthly from './explore/humidity/HumidityMonthly.jsx'
+import Vegetation from './explore/land/Vegetation.jsx'
 import OrgUnit from './explore/OrgUnit.jsx'
 import PrecipitationDaily from './explore/precipitation/PrecipitationDaily.jsx'
 import PrecipitationMonthly from './explore/precipitation/PrecipitationMonthly.jsx'
@@ -101,6 +102,16 @@ const tabRoutes = [
             {
                 path: ':month/:referencePeriodId',
                 element: <ClimateChange />,
+            },
+        ],
+    },
+    {
+        path: 'vegetation',
+        element: <Tabs />,
+        children: [
+            {
+                path: ':vegetationIndex',
+                element: <Vegetation />,
             },
         ],
     },
